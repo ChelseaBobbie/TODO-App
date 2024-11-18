@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <div class="maindiv" id="maindiv" style="width: 100%">
+      <div id="myDIV" class="header">
+        <h1>To Do List 📝</h1>
+        <input
+          type="text"
+          class="inputt"
+          id="myInput"
+          placeholder="Write your task"
+        />
+        <span onclick="newElement()" class="addBtn">🞣</span>
+      </div>
+      <div class="container" style="height: 250px; overflow-y: auto">
+        <ul id="myTask"></ul>
+      </div>
+    </div>
+    <div class="task-footer">
+      <span class="task-count" id="task-count"></span>
+      <button class="clear-btn" id="clear-btn">Clear All</button>
+    </div>
+    <div class="popUp" id="popUp" hidden>
+      <p>Are you sure you want to delete this task</p>
+      <button id="confirm-btn" class="confirm-btn">Delete</button>
+      <button id="cancelbutton" class="cancelbutton">Cancel</button>
+    </div>
+    <div class="clearAllPopUp" id="clearAllPopUp" hidden>
+      <p>Are you sure you want to Clear all?</p>
+      <button id="confirmclearall" class="confirmclearall">Clear all</button>
+      <button id="cancelclearall" class="cancelclearall">Cancel</button>
+    </div>
+    <div class="editPopUp" id="editPopUp" hidden>
+      <p>Edit task</p>
+      <p><input type="text" id="editTaskInput" class="editTaskInput" /></p>
+      <button class="saveTaskEdit" id="saveTaskEdit">Save</button>
+      <button class="cancelTaskEdit" id="cancelTaskEdit">Cancel</button>
+    </div>
+
+    <script src="todo.js"></script>
+  </body>
+</html>

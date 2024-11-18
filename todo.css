@@ -1,0 +1,484 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial, Helvetica, sans-serif;", Arial, sans-serif;
+  justify-items: center;
+  overflow-y: none;
+  background-repeat: no-repeat;
+}
+body.modal-active .maindiv {
+  filter: blur(5px);
+  pointer-events: none;
+}
+body.modal-active .task-footer {
+  filter: blur(5px);
+  pointer-events: none;
+}
+html {
+  background: linear-gradient(180deg, #f3f3f3, #369ef4);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+div p {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.header {
+  background-color: #369ef4;
+  padding: 30px 40px;
+  margin-top: 10em;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.inputt {
+  margin-left: 30px;
+  border: none;
+  width: 75%;
+  height: 30px;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0.5px solid rgb(0, 0, 0);
+}
+
+.inputt:focus {
+  outline: none;
+}
+.container {
+  overflow-y: scroll;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 5px 10px 29px;
+}
+.addBtn {
+  padding: 5px;
+  width: 10%;
+  height: 30px;
+  margin-left: 10px;
+  background: #dee5eb;
+  color: #000000;
+  float: left;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+  border: 0.4px solid rgb(0, 0, 0);
+}
+
+.addBtn:hover {
+  background-color: #a8c7e6;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  border-bottom-left-radius: 5px;
+}
+
+ul li {
+  position: relative;
+  padding: 12px 70px 12px 40px;
+  background: #cce1f3;
+  font-size: 18px;
+  color: #1f0030;
+  width: 100%;
+  list-style-type: decimal;
+  border: 0.5px solid rgb(1, 0, 56);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-shadow: rgba(0, 0, 0, 0.438) 0px 5px 15px;
+}
+
+ul li:nth-child(odd) {
+  background: #e3e3e3;
+}
+.edit:before {
+  content: "\270E";
+}
+.edit {
+  position: absolute;
+  right: 40px;
+  top: 1px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  background-color: transparent;
+}
+
+.edit:hover {
+  color: #2f8cd4;
+}
+
+.checkbutton::before {
+  content: "\2714";
+}
+.checkbutton {
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.checkbutton:hover {
+  background-color: transparent;
+  color: rgb(0, 181, 0);
+}
+
+ul li.checked::before {
+  position: absolute;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+ul li.checked {
+  background: #81ffad;
+  color: #000000;
+  text-decoration: line-through;
+}
+
+.close::before {
+  content: "\2718";
+  font-weight: bold;
+}
+.close {
+  position: absolute;
+  right: 10px;
+  top: 1px;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: "Arial, Helvetica, sans-serif;";
+  padding: 10px;
+  background-color: transparent;
+}
+
+.close:hover {
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+  border-radius: 5px;
+  border: #1f0030;
+}
+
+.popUp {
+  background-color: #3f5280d3;
+  border: 1px solid rgb(0, 2, 92);
+  position: absolute;
+  color: rgb(241, 240, 240);
+  top: 15em;
+  right: 15em;
+  left: 15em;
+  padding: 2em;
+  height: auto;
+  width: 30%;
+  z-index: 1;
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
+}
+
+div p {
+  margin-bottom: 25px;
+}
+.clear-btn {
+  background: rgba(240, 121, 121, 0.936);
+  border-radius: 0px;
+  border: 0px solid black;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  transition: 0.2s;
+  justify-content: flex-end;
+}
+
+.clear-btn:hover {
+  background-color: rgb(209, 0, 0);
+  color: rgb(252, 252, 252);
+  cursor: pointer;
+}
+.confirm-btn {
+  background-color: #cd5151;
+  padding: 10.5px;
+  margin-left: 40px;
+  width: auto;
+  color: #252525;
+  float: left;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 1px;
+  border: 0px solid rgb(0, 0, 0);
+}
+.confirm-btn:hover {
+  background-color: rgb(182, 29, 29);
+  color: #ffffff;
+}
+.cancelbutton {
+  background-color: rgb(181, 181, 181);
+  padding: 10.5px;
+  color: rgb(0, 0, 0);
+  margin-left: 60px;
+  width: auto;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 1px;
+  border: 0px solid rgb(0, 0, 0);
+}
+
+.cancelbutton:hover {
+  background-color: #4c4a4a;
+  color: whitesmoke;
+}
+
+.clearAllPopUp {
+  background-color: #3f5280d3;
+  border: 1px solid rgb(0, 2, 92);
+  position: absolute;
+  color: rgb(241, 240, 240);
+  top: 15em;
+  right: 15em;
+  left: 15em;
+  padding: 2em;
+  height: 25%;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.confirmclearall {
+  background-color: #cd5151;
+  padding: 10.5px;
+  margin-left: 30px;
+  width: 25%;
+  color: whitesmoke;
+  float: left;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 1px;
+  border: 0px solid rgb(0, 0, 0);
+}
+.confirmclearall:hover {
+  cursor: pointer;
+  background-color: rgb(197, 28, 28);
+  color: whitesmoke;
+}
+
+.task-count {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  justify-content: flex-end;
+  border-radius: 0px;
+  border: 0px solid black;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  transition: 0.2s;
+}
+
+.cancelclearall {
+  background-color: rgb(181, 181, 181);
+  padding: 10.5px;
+  color: whitesmoke;
+  margin-left: 60px;
+  width: 25%;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 1px;
+  border: 0px solid rgb(0, 0, 0);
+}
+
+.cancelclearall:hover {
+  cursor: pointer;
+  background-color: rgb(119, 119, 119);
+  color: whitesmoke;
+}
+
+.editPopUp {
+  background-color: #3f5280d3;
+  border: 1px solid rgb(0, 2, 92);
+  position: absolute;
+  color: rgb(241, 240, 240);
+  top: 15em;
+  right: 15em;
+  left: 15em;
+  padding: 20px;
+  height: max-content;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.saveTaskEdit {
+  background-color: #5dafe2;
+  padding: 5px;
+  width: 20%;
+  color: #ededed;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 0px solid rgb(0, 0, 0);
+}
+.saveTaskEdit:hover {
+  cursor: pointer;
+  background-color: rgb(0, 46, 83);
+  color: rgb(230, 230, 230);
+}
+
+.cancelTaskEdit {
+  background-color: rgb(181, 181, 181);
+  padding: 5px;
+  color: rgba(61, 60, 60, 0.667);
+  margin-left: 60px;
+  width: 20%;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 0px;
+}
+
+.cancelTaskEdit:hover {
+  cursor: pointer;
+  background-color: rgb(77, 77, 77);
+  color: whitesmoke;
+}
+
+.editTaskInput {
+  margin-bottom: 10px;
+  border: none;
+  width: 50%;
+  padding: 3px;
+  color: rgb(68, 68, 68);
+  background-color: rgb(242, 242, 242);
+  float: none;
+  font-size: 13px;
+  border: 0.5px solid rgb(73, 72, 72);
+}
+.editTaskInput:focus {
+  outline: none;
+  background-color: #cfcfcf;
+  color: #000000;
+}
+
+.task-footer {
+  /* background-color: #626e8ad3; */
+  width: 40%;
+  height: auto;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+#task-count {
+  background-color: #e8e8e8;
+  border: 1px solid rgb(145, 145, 145);
+}
+
+@media only screen and (max-width: 600px) {
+  .header,
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+  .clear-btn {
+    float: right;
+    margin: 30px;
+  }
+
+  .confirm-btn {
+    margin-left: 80px;
+  }
+
+  .inputt {
+    width: 65%;
+  }
+
+  .addBtn {
+    width: 10%;
+    font-size: 14px;
+  }
+
+  .popUp,
+  .clearAllPopUp,
+  .editPopUp {
+    width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .header,
+  .container {
+    width: 70%;
+  }
+
+  .inputt {
+    width: 70%;
+  }
+  .addBtn {
+    width: 30px;
+  }
+
+  .clear-btn {
+    float: right;
+    margin: 30px;
+  }
+
+  .popUp,
+  .clearAllPopUp,
+  .editPopUp {
+    width: 60%;
+    left: 20%;
+    right: 20%;
+  }
+}
